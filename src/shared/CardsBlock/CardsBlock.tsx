@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './cardsblock.css';
 import {CardContainer} from "./CardContainer";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../store/reducer";
+import {AnimePost, RootState} from "../../store/reducer";
 import axios from "axios";
 import {createAnimePosts} from "../../store/actions";
 
@@ -53,7 +53,7 @@ export function CardsBlock() {
                         </div>
                     )}
 
-                    {posts.map((post: { anime_id: number; anime_name: string; anime_img: string; like: boolean }) => {
+                    {posts.map((post: AnimePost) => {
                         switch (liked) {
                             case true:
                                 return post.like ? <CardContainer
