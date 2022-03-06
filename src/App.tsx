@@ -11,10 +11,10 @@ import {CardsBlock} from "./shared/CardsBlock";
 const store = createStore(rootReducer, composeWithDevTools())
 
 function AppComponent() {
-    return(
-        <Provider store={store} >
+    return (
+        <Provider store={store}>
             <Layout>
-                <CardsBlock />
+                <CardsBlock/>
             </Layout>
         </Provider>
     )

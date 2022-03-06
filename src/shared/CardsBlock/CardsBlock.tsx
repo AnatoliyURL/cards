@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import styles from './cardsblock.css';
 import {CardContainer} from "./CardContainer";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState, createAnimePosts} from "../../store/reducer";
+import {RootState} from "../../store/reducer";
 import axios from "axios";
+import {createAnimePosts} from "../../store/actions";
 
 export function CardsBlock() {
     const [loading, setLoading] = useState(false)
@@ -30,7 +31,7 @@ export function CardsBlock() {
 
         if (posts.length === 0) load()
 
-    },[liked])
+    }, [liked])
 
 
     function onClickLiked() {
@@ -40,7 +41,9 @@ export function CardsBlock() {
     return (
         <div className={styles.cardsContainer}>
             <div className={styles.btnFilterBlock}>
-                <button className={ `${styles.likedBtn } ${liked ? styles.active : ""}`}  onClick={onClickLiked}>Понравишиеся</button>
+                <button className={`${styles.likedBtn} ${liked ? styles.active : ""}`}
+                        onClick={onClickLiked}>Понравишиеся
+                </button>
             </div>
             <div>
                 <ul className={styles.cardsBlock}>
